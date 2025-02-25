@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-4 offset-4">
+            <h1>Информация</h1>
+
+            {% for info in all_info %}
+
+            <div class="alert alert-info">
+                <div class="row">
+                    <div class="col-9">
+                        <b>Город: </b> {{ info.city }}<br>
+                        <b>Температура: </b> {{ info.temp }} <sup>о</sup><br>
+                        <b>Макс. температура: </b> {{ info.temp_max }} <sup>о</sup><br>
+                        <b>Мин. температура: </b> {{ info.temp_min }} <sup>о</sup><br>
+                    </div>
+                    <div class="col-2 offset-1">
+                        <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды" class="img-thumbnail">
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock body %}
